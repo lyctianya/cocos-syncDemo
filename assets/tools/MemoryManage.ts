@@ -1,12 +1,12 @@
 import { difference, unique } from "./Tools";
 
-class MemoryManage {
-  private static _instance = null;
+class MemoryManager {
+  private static _instance: MemoryManager = null;
   private totalAssets: Array<string> = [];
   private curAssets: Array<string> = [];
-  public static getInstance() {
+  public static getInstance(): MemoryManager {
     if (!this._instance) {
-      this._instance = new MemoryManage();
+      this._instance = new MemoryManager();
     }
     return this._instance;
   }
@@ -31,13 +31,22 @@ class MemoryManage {
    * @param {cc.Node} node
    * @memberof MemoryManage
    */
-  public addRecord(node: cc.Node) {
-    const sprite = node.getComponent(cc.Sprite);
-    if (sprite) this.addSpriteRecord(sprite);
-    const dragon = node.getComponent(dragonBones.ArmatureDisplay);
-    if (dragon) this.addDragonRecord(dragon);
-    const spine = node.getComponent(sp.Skeleton);
-    if (spine) this.addSpineRecord(spine);
+  public addRecord(node: cc.Node | string) {
+    if (node instanceof cc.Node) {
+      const sprite = node.getComponent(cc.Sprite);
+      if (sprite) this.addSpriteRecord(sprite);
+      const dragon = node.getComponent(dragonBones.ArmatureDisplay);
+      if (dragon) this.addDragonRecord(dragon);
+      const spine = node.getComponent(sp.Skeleton);
+      if (spine) this.addSpineRecord(spine);
+    } else {
+      this.addPrefabRecord(node);
+    }
+  }
+
+  public addPrefabRecord(path: string) {
+    const dep = cc.loader.getDependsRecursively(path);
+    this.curAssets.push(...dep);
   }
 
   private addSpriteRecord(sprite: cc.Sprite) {
@@ -96,4 +105,4 @@ class MemoryManage {
   }
 }
 
-export default MemoryManage.getInstance();
+export default MemoryManager.getInstance();
