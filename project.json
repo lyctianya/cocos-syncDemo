@@ -1,0 +1,7 @@
+{
+  "engine": "cocos2d-html5",
+  "packages": "packages",
+  "version": "2.2.2",
+  "name": "syncDemo",
+  "id": "050fd794-4efb-4ba6-ac3b-0638c6fd1d0d"
+}
