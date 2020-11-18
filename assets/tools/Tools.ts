@@ -186,3 +186,15 @@ export function difference<T>(
   });
   return result;
 }
+
+/**
+ *
+ * 去重
+ * @export
+ * @template T
+ * @param {Array<T>} arr
+ * @return {*}  {Array<T>}
+ */
+export function unique<T>(arr: Array<T>): Array<T> {
+  return Array.from(new Set(arr));
+}
