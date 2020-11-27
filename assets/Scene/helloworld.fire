@@ -571,10 +571,11 @@
       "__id__": 2
     },
     "_enabled": true,
-    "label": {
-      "__id__": 11
+    "_wrongAudio": 4,
+    "wrongAudio": {
+      "__uuid__": "f91eeb5c-f7a4-4566-a68c-5fdc90e26506"
     },
-    "text": "hello",
+    "bg": null,
     "_id": "2aIjnjb09MqLq6IFDFWgkB"
   }
 ]
