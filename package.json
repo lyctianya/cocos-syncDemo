@@ -1,0 +1,26 @@
+{
+    "name": "cocosdemo",
+    "version": "1.0.0",
+    "description": "Hello world new project template.",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/lyctianya/cocos-syncDemo.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/lyctianya/cocos-syncDemo/issues"
+    },
+    "homepage": "https://github.com/lyctianya/cocos-syncDemo#readme",
+    "devDependencies": {
+        "@typescript-eslint/eslint-plugin": "^2.26.0",
+        "@typescript-eslint/parser": "^2.26.0",
+        "eslint": "^6.8.0",
+        "ts-node": "^8.8.2",
+        "typescript": "^3.8.2"
+    }
+}

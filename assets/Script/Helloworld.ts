@@ -1,6 +1,6 @@
 const { ccclass, property } = cc._decorator;
 
-const CSC_voicePath = "db://assets/componentlib/voice/";
+const voicePath = "db://assets/componentlib/voice/";
 const audioList = [
   "",
   "long_01.mp3",
@@ -81,23 +81,25 @@ export default class Helloworld extends cc.Component {
     this.updateNode(this._nodeNum);
   }
 
-  get nodeNum() {
+  get nodeNum(): number {
     return this._nodeNum;
   }
 
-  start() { }
+  start(): void {
+      return null;
+   }
 
-  updateNode(num: number) {
+  updateNode(num: number): void {
     for (let i = 0; i < num; i++) {
       this.node.addChild(new cc.Node());
     }
   }
 
-  autoSetAudioClip(url: string, cb = (ret) => { }) {
+  autoSetAudioClip(url: string, cb = (ret) => { }): void {
     cc.loader.load(
       {
         type: "uuid",
-        uuid: Editor.assetdb.remote.urlToUuid(CSC_voicePath + url),
+        uuid: Editor.assetdb.remote.urlToUuid(voicePath + url),
       },
       null,
       (e, data) => {
